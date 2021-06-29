@@ -214,6 +214,7 @@ public abstract class ExchangeServiceBase implements Closeable {
     AuthenticationStrategy authStrategy = new CookieProcessingTargetAuthenticationStrategy();
 
     httpPoolingClient = HttpClients.custom()
+        .disableContentCompression()
         .setConnectionManager(httpConnectionManager)
         .setTargetAuthenticationStrategy(authStrategy)
         .build();
